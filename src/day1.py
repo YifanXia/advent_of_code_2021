@@ -2,9 +2,9 @@
 
 from typing import List
 
-def get_increases(measurements: List[int]) -> int:
+def get_increases(measurements: List[int], steps: int = 0) -> int:
     increases = [
-        a < b for a, b in zip(measurements[:-1], measurements[1:])
+        a < b for a, b in zip(measurements[:-1], measurements[1 + steps:])
     ]
     return sum(increases)
 
@@ -23,3 +23,4 @@ if __name__ == "__main__":
 
     sums = get_sum_of_three(measurements)
     print(get_increases(sums))
+    print(get_increases(measurements, steps=2))
