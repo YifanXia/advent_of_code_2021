@@ -16,8 +16,9 @@ def get_sum_of_three(measurements: List[int]) -> List[int]:
     return sums
 
 if __name__ == "__main__":
-
-    with open("/home/yifan_xia/advent_of_code/2021/data/day1", "r") as input:
+    import os
+    os.chdir(os.path.dirname(__file__))
+    with open("../data/day1", "r") as input:
         measurements = list(map(int, input.readlines()))
     print(get_increases(measurements))
 
