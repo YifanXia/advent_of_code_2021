@@ -1,6 +1,6 @@
 """
 Advent of Code 2021: Day 2.
-Use Python 3.10.x.
+Use Python 3.10.x for Pattern matching.
 """
 
 from typing import Iterable, Tuple
