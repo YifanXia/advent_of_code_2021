@@ -7,12 +7,11 @@ def find_path(start: str, visited: Set, adjacency_list: DefaultDict[str, Set], a
     res = []
     neighbours = adjacency_list[start]
     for node in neighbours:
+        allow_twice_next = allow_twice
         if node.islower() and node in visited:
             if not allow_twice or node == "start":
                 continue
-            allow_twice_next = False
-        else:
-            allow_twice_next = allow_twice
+            allow_twice_next = False    
         paths = [
             [start] + path
             for path in find_path(node, visited.union({start}), adjacency_list, allow_twice_next)
@@ -35,7 +34,6 @@ def main():
             adjacency_list[b].add(a)
             line = file.readline()
     
-    import pprint
     res_1 = find_path("start", set(), adjacency_list)
     print(len(res_1))
     res_2 = find_path("start", set(), adjacency_list, True)
